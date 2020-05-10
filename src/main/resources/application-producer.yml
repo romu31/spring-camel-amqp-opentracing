@@ -1,0 +1,25 @@
+server:
+  port: 8081
+logging:
+  level:
+    root: DEBUG
+management:
+  endpoints:
+    enabled-by-default: true
+    web:
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: always
+spring:
+  application:
+    name: romu test camel
+
+opentracing:
+  jaeger:
+    udp-sender:
+      host: localhost
+    log-spans: true
+#    http-sender:
+#      url: "http://localhost:14268/api/traces"
+    enabled: true
