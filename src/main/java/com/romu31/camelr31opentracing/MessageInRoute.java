@@ -16,7 +16,8 @@ public class MessageInRoute extends RouteBuilder {
 				.to("log:?level=INFO&showBody=true")
 				.process(exchange -> {
 					Map<String, Object> s = exchange.getMessage().getHeaders();
-					// cause invalid rootspan on qpid jms ActiveSpanManager.getSpan(exchange).setOperationName("message in route set by hand");
+					// cause invalid rootspan on qpid jms
+					ActiveSpanManager.getSpan(exchange).setOperationName("custom-opname");
 				});
 				//.to("direct:readQueue");
 	}
